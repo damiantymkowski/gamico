@@ -13,25 +13,48 @@ export const Menu = styled.div`
 display: flex;
 font-family: 'Karla', sans-serif;
 align-items: center;
-margin-top: 12px;
 margin-left: 5%;
 color: ${Colors.lime};
 width: 100%;
 `
 
 export const IconContainer = styled.div`
-font-size: 41px;
+font-size: 25px;
 `
+
 export const MenuItem = styled.div`
 margin-left: ${props => props.last ? "auto" : "3%"};
 display: flex;
 align-items: center;
 margin-right: ${props=>props.last ? "5%" : ""};
-justify-content: center;
 `
+
+export const MenuHamburger = styled.button`
+display: flex;
+align-items: center;
+margin-right: 5%;
+margin-left: auto;
+background: none;
+border: none;
+color: ${Colors.lime};
+`
+
+export const MenuMobile = styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
+color: ${Colors.lime};
+background: ${Colors.lightGray};
+width: 100%;
+display: none;
+@media screen and (min-width: 1000px) {
+  display: none;
+}
+`
+
 export const SmallText = styled.p`
 font-family: Karla, sans-serif;
-font-size: 18px;
+font-size: 14px;
 line-height: 21px;
 margin-left: 10px;
 `
@@ -41,7 +64,7 @@ margin: 0;
 font-family: Rubik, sans-serif;
 font-style: normal;
 font-weight: normal;
-font-size: 36px;
+font-size: 25px;
 line-height: 43px;
 margin-left: 17px;
 color: ${Colors.white};
