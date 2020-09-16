@@ -16,6 +16,7 @@ align-items: center;
 margin-left: 5%;
 color: ${Colors.lime};
 width: 100%;
+height: 100%;
 `
 
 export const IconContainer = styled.div`
@@ -27,9 +28,13 @@ margin-left: ${props => props.last ? "auto" : "3%"};
 display: flex;
 align-items: center;
 margin-right: ${props=>props.last ? "5%" : ""};
+height: 100%;
+&:hover{
+border-top: 1px solid ${Colors.lime};
+}
 `
 
-export const MenuHamburger = styled.button`
+/*export const MenuHamburger = styled.button`
 display: flex;
 align-items: center;
 margin-right: 5%;
@@ -37,7 +42,8 @@ margin-left: auto;
 background: none;
 border: none;
 color: ${Colors.lime};
-`
+`*/
+
 
 const openMenuAnimation = keyframes`
     0% { opacity: 0.1;}
@@ -53,7 +59,7 @@ flex-direction: column;
 color: ${Colors.lime};
 background: ${Colors.lightGray};
 animation-name: ${openMenuAnimation};
-animation-duration: 0.6s;
+animation-duration: 0.5s;
 width: 100%;
 display: none;
 @media screen and (min-width: 1000px) {
