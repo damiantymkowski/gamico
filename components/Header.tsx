@@ -19,19 +19,7 @@ import { useRef, useState } from "react";
 import Hamburger from "./Hamburger";
 
 const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
   const mobileMenu = useRef();
-
-  const toggleMenu = () => {
-    if (showMenu == false) {
-      mobileMenu.current.style.display = "flex";
-      setShowMenu(true);
-    } else {
-      mobileMenu.current.style.display = "none";
-      setShowMenu(false);
-    }
-  };
-
   return (
     <>
       <Container>
@@ -60,10 +48,7 @@ const Header = () => {
         <MediaQuery query="(max-width: 1024px)">
           {/*Mobile Hamburger*/}
           <Menu>
-            <Hamburger/>
-           {/* <MenuHamburger onClick={toggleMenu}>
-              <IconContainer>{menuHamburgerIcon()}</IconContainer>
-            </MenuHamburger>*/}
+            <Hamburger mobileMenuElement={mobileMenu}/>
           </Menu>
         </MediaQuery>
       </Container>
