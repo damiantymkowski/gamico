@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import {Colors} from "./Colors.style";
 
 export const Container = styled.div`
@@ -39,12 +39,21 @@ border: none;
 color: ${Colors.lime};
 `
 
+const openMenuAnimation = keyframes`
+    0% { opacity: 0.1;}
+    30% { opacity: 0.4;}
+    40% { opacity: 0.7;}
+    100% { opacity: 1;}
+`
+
 export const MenuMobile = styled.div`
 display: flex;
 justify-content: center;
 flex-direction: column;
 color: ${Colors.lime};
 background: ${Colors.lightGray};
+animation-name: ${openMenuAnimation};
+animation-duration: 0.6s;
 width: 100%;
 display: none;
 @media screen and (min-width: 1000px) {
