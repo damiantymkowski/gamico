@@ -72,11 +72,7 @@ const Header = () => {
           </MenuItem>
         </MenuMobile>
       </MediaQuery>
-      <Banner>
-        <BannerTitle>Pisz artykuły o grach</BannerTitle>
-        <BannerSmallText>zdobywaj rozmaite nagrody</BannerSmallText>
-        <BannerMainImage></BannerMainImage>
-      </Banner>
+
     </>
   );
 };
