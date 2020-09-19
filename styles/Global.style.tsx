@@ -8,4 +8,5 @@ export const GlobalStyle = createGlobalStyle`
       color: black;
       background: ${Colors.darkBlue};
     }
+}
     `
