@@ -1,4 +1,5 @@
 import {
+  Banner, BannerMainImage, BannerSmallText, BannerTitle,
   Container,
   IconContainer,
   Logo,
@@ -15,8 +16,9 @@ import {
   menuHamburgerIcon,
   menuTrophyIcon,
 } from "../utils/Header.utils";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Hamburger from "./Hamburger";
+
 
 const Header = () => {
   const mobileMenu = useRef();
@@ -70,6 +72,11 @@ const Header = () => {
           </MenuItem>
         </MenuMobile>
       </MediaQuery>
+      <Banner>
+        <BannerTitle>Pisz artykuły o grach</BannerTitle>
+        <BannerSmallText>zdobywaj rozmaite nagrody</BannerSmallText>
+        <BannerMainImage></BannerMainImage>
+      </Banner>
     </>
   );
 };
