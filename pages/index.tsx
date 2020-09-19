@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import {GlobalStyle} from "../styles/Global.style";
-import {Banner, BannerMainImage, BannerSmallText, BannerTitle} from "../styles/Header.style";
+import {Banner, BannerMainImage, BannerSmallText, BannerTitle} from "../styles/Index.style";
 
 const IndexPage = () => (
 <>
