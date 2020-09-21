@@ -12,28 +12,29 @@ cursor: pointer;
 margin-left: auto;
 padding: 0;
 margin-right: 15px;
+align-items: center;
+@media screen and (min-width: 1000px) {display: none;}
 `
 
 
 export const HamburgerIcon = styled.span`
 width: 20px;
-height: 5px;
 display: inline-block;
 position: relative;
 `
 export const HamburgerLine = styled.span`
 content: '';
 position: absolute;
-border-bottom: 1.5px solid ${Colors.lime};
+background-color: ${Colors.lime};
 width: 30px;
-height: 5px;
+height: 1px;
 left:0;
 &::before, &::after{
 content: '';
 position: absolute;
-border-bottom: 1.5px solid ${Colors.lime};
+background-color: ${Colors.lime};
 width: 30px;
-height: 5px;
+height: 1px;
 }
 &::before{
 top:-10px;
@@ -59,12 +60,13 @@ const openMenuAnimationBefore = keyframes`
 
 export const ActiveHamburgerButton = styled(HamburgerButton)`
 ${HamburgerLine}{
-position: relative;
+background-color: transparent;
     &::after{
     transform: translateY(-10px) rotate(-40deg);
     animation-name: ${openMenuAnimationAfter};
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+    
     }
     &::before{
     transform: translateY(10px) rotate(40deg);
