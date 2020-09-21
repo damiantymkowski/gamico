@@ -1,9 +1,9 @@
-import {ActiveHamburgerButton, HamburgerButton, HamburgerIcon, HamburgerLine} from "../styles/Hamburger.style";
+import {HamburgerButton, HamburgerIcon, HamburgerLine} from "../styles/Hamburger.style";
 import {useEffect, useState} from "react";
 
 const Hamburger = ({mobileMenuElement}) =>{
     const [showMenu, setShowMenu] = useState(false);
-    const Hamburger = showMenu ? ActiveHamburgerButton : HamburgerButton;
+/*    const Hamburger = showMenu ? ActiveHamburgerButton : HamburgerButton;*/
     const toggleMobileMenu = () => {
         if (showMenu == false) {
             mobileMenuElement.current.style.display = "flex";
@@ -14,11 +14,11 @@ const Hamburger = ({mobileMenuElement}) =>{
         }
     };
     return(
-       <Hamburger onClick={toggleMobileMenu}>
+       <HamburgerButton onClick={toggleMobileMenu}>
            <HamburgerIcon>
-               <HamburgerLine></HamburgerLine>
+               <HamburgerLine animate={showMenu}></HamburgerLine>
            </HamburgerIcon>
-       </Hamburger>
+       </HamburgerButton>
     );
 }
 
