@@ -3,10 +3,11 @@ import {Colors} from "./Colors.style";
 
 export const Container = styled.div`
 background: #393E46;
-height: 100%;
+height: 60px;
 width: 100%;
 display: flex;
 align-items: center;
+
 `
 
 export const Menu = styled.div`
@@ -17,6 +18,12 @@ margin-left: 5%;
 color: ${Colors.lime};
 width: 100%;
 height: 100%;
+  ${({ desktop }) => desktop && `
+    @media screen and (max-width: 1000px) {display: none;}
+  `}
+    ${({ mobile }) => mobile && `
+    @media screen and (min-width: 1000px) {display: none;}
+  `}
 `
 
 export const IconContainer = styled.div`
@@ -34,16 +41,6 @@ border-top: 1px solid ${Colors.lime};
 }
 `
 
-/*export const MenuHamburger = styled.button`
-display: flex;
-align-items: center;
-margin-right: 5%;
-margin-left: auto;
-background: none;
-border: none;
-color: ${Colors.lime};
-`*/
-
 
 const openMenuAnimation = keyframes`
     0% { opacity: 0.1;}
@@ -53,7 +50,9 @@ const openMenuAnimation = keyframes`
 `
 
 export const MenuMobile = styled.div`
-display: flex;
+display: none;
+z-index: 10;
+position: relative;
 justify-content: center;
 flex-direction: column;
 color: ${Colors.lime};
@@ -61,7 +60,6 @@ background: ${Colors.lightGray};
 animation-name: ${openMenuAnimation};
 animation-duration: 0.5s;
 width: 100%;
-display: none;
 @media screen and (min-width: 1000px) {
   display: none;
 }
@@ -84,3 +82,4 @@ line-height: 43px;
 margin-left: 17px;
 color: ${Colors.white};
 `
+
