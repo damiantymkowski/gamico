@@ -27,9 +27,7 @@ const Header = () => {
       <Container>
         <Logo>GAMICO</Logo>
 
-        <MediaQuery query="(min-width: 1024px)">
-          {/*Desktop Menu*/}
-          <Menu>
+          <Menu desktop>
             <MenuItem>
               <IconContainer>{menuGoldIcon()}</IconContainer>
               <SmallText>ZDOBYWAJ</SmallText>
@@ -45,19 +43,13 @@ const Header = () => {
               <SmallText>REJESTRACJA</SmallText>
             </MenuItem>
           </Menu>
-        </MediaQuery>
 
-        <MediaQuery query="(max-width: 1024px)">
-          {/*Mobile Hamburger*/}
-          <Menu>
+          <Menu mobile>
             <Hamburger mobileMenuElement={mobileMenu}/>
           </Menu>
-        </MediaQuery>
       </Container>
 
-      <MediaQuery query="(max-width: 1024px)">
         <MenuMobile ref={mobileMenu}>
-          {/*Mobile Menu*/}
           <MenuItem>
             <IconContainer>{menuGoldIcon()}</IconContainer>
             <SmallText>ZDOBYWAJ</SmallText>
@@ -71,7 +63,6 @@ const Header = () => {
             <SmallText>REJESTRACJA</SmallText>
           </MenuItem>
         </MenuMobile>
-      </MediaQuery>
 
     </>
   );
