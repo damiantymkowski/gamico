@@ -15,7 +15,7 @@ import {
   menuGoldIcon,
   menuHamburgerIcon,
   menuTrophyIcon,
-} from "../utils/Header.utils";
+} from "../utils/Icons";
 import { useRef } from "react";
 import Hamburger from "./Hamburger";
 

@@ -3,6 +3,13 @@ import goldIcon from '@iconify/icons-mdi/gold';
 import trophyVariantOutline from '@iconify/icons-mdi/trophy-variant-outline';
 import accountPlusOutline from '@iconify/icons-mdi/account-plus-outline';
 import menuIcon from '@iconify/icons-mdi/menu';
+import emailIcon from '@iconify/icons-mdi/email';
+
+export const mailIcon = () => {
+    return(
+        <Icon icon={emailIcon} />
+    );
+}
 
 export const menuGoldIcon = () => {
     return(
