@@ -1,5 +1,4 @@
 # Gamico
-This is a really simple project that shows the usage of Next.js with TypeScript.
 Gamico is the entertainment app. This web-app lets you earn free skins for completing
 tasks, surveys & more. 
 ## Usage
