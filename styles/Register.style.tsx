@@ -84,5 +84,6 @@ justify-content: center;
 align-items: center;
 font-size: 25px;
 color: ${Colors.darkBlue};
+transition: background-color 0.3s;
 `
 
