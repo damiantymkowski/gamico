@@ -15,13 +15,14 @@ import {
 import {accountIcon, lockIcon, mailIcon,} from "../utils/Icons";
 import {useForm} from "react-hook-form";
 import {useRef} from "react";
-
+import { motion } from 'framer-motion';
 
 type RegisterUser = {
     username: string;
     email: string;
     password: string;
 };
+
 
 const Register = () => {
     const emailIcon = useRef(null);
@@ -33,7 +34,11 @@ const Register = () => {
         console.log("data", data);
 
     };
+
     const onError = (errors, e) => {
+        emailIcon.current.style.backgroundColor = "#4ECCA3";
+        usernameIcon.current.style.backgroundColor = "#4ECCA3";
+        passwordIcon.current.style.backgroundColor = "#4ECCA3";
         if(errors.email)
          emailIcon.current.style.backgroundColor = "#e25d5d";
         if(errors.username)
@@ -41,11 +46,17 @@ const Register = () => {
         if(errors.password)
             passwordIcon.current.style.backgroundColor = "#e25d5d";
     };
+
     return (
         <>
             <GlobalStyle/>
             <Header/>
             <Container>
+                <motion.div
+                    initial={{opacity:0, rotate: 50}}
+                    animate={{ opacity:1, rotate: 0 }}
+                    exit={{ opacity: 0 }}
+                >
                 <RegisterBox>
                     <RegisterBoxImage
                         alt="Register box image. Minecraft character with potion. He have long robe, big smile and tshirt."
@@ -83,6 +94,7 @@ const Register = () => {
                     </RegisterBoxForm>
 
         </RegisterBox>
+                </motion.div>
           </Container>
       </>
     );
