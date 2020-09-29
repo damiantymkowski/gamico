@@ -1,27 +1,24 @@
 import {
-  Banner, BannerMainImage, BannerSmallText, BannerTitle,
   Container,
   IconContainer,
   Logo,
   Menu,
-  MenuHamburger,
   MenuItem,
   MenuMobile,
   SmallText,
 } from "../styles/Header.style";
-import MediaQuery from "react-responsive";
 import {
   menuAccountIcon,
   menuGoldIcon,
-  menuHamburgerIcon,
   menuTrophyIcon,
 } from "../utils/Icons";
 import { useRef } from "react";
 import Hamburger from "./Hamburger";
+import Link from "next/link";
 
 
 const Header = () => {
-  const mobileMenu = useRef();
+  const mobileMenu = useRef<HTMLDivElement>(null);
   return (
     <>
       <Container>
@@ -40,7 +37,7 @@ const Header = () => {
 
             <MenuItem last>
               <IconContainer>{menuAccountIcon()}</IconContainer>
-              <SmallText>REJESTRACJA</SmallText>
+              <Link href="/register" as="/register"><SmallText>REJESTRACJA</SmallText></Link>
             </MenuItem>
           </Menu>
 
