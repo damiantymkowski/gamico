@@ -1,4 +1,4 @@
-import styled, {keyframes, css} from "styled-components";
+import styled, {css} from "styled-components";
 import {Colors} from "./Colors.style";
 
 export const HamburgerButton = styled.button`
@@ -22,7 +22,11 @@ display: inline-block;
 position: relative;
 `
 
-export const HamburgerLine = styled.span`
+type HamburgerLineType = {
+  animate?: boolean
+}
+
+export const HamburgerLine = styled.span<HamburgerLineType>`
 content: '';
 position: absolute;
 background-color: ${Colors.lime};

@@ -24,7 +24,12 @@ color: ${Colors.lime};
 font-family: 'Karla', sans-serif;
 `;
 
-export const RegisterBoxForm = styled.form`
+type RegisterBoxFormType = {
+    onChange?: any
+    onSubmit?: any
+}
+
+export const RegisterBoxForm = styled.form<RegisterBoxFormType>`
 flex: 95%;
 margin-left: -35%;
 `;
@@ -85,5 +90,9 @@ align-items: center;
 font-size: 25px;
 color: ${Colors.darkBlue};
 transition: background-color 0.3s;
+`
+
+export const RegisterBoxErrorMessage = styled.p`
+
 `
 
