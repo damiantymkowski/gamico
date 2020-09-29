@@ -77,22 +77,33 @@ export const RegisterBoxInputContainer = styled.div`
   left: 15px;
 `
 
-export const RegisterBoxInputImg = styled.div`
+type RegisterBoxInputImgType = {
+    error?: boolean
+}
+
+export const RegisterBoxInputImg = styled.div<RegisterBoxInputImgType>`
 position: absolute;
 margin-left: 138.2px;
 margin-top: 5px;
-height: 32.1px;
+height: 32px;
 width: 36px;
-background-color: ${Colors.lime};
 display: flex;
 justify-content: center;
 align-items: center;
 font-size: 25px;
 color: ${Colors.darkBlue};
+background-color: ${props => props.error ? `${Colors.lightRed}` : `${Colors.lime}`};
 transition: background-color 0.3s;
+
 `
 
 export const RegisterBoxErrorMessage = styled.p`
-
+color: ${Colors.lightRed};
+font-family: 'Rubik', sans-serif;
+font-size: 12px;
+padding: 0;
+margin: 0;
+margin-top: 5px;
+margin-left: -70px;
 `
 
