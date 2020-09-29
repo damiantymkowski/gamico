@@ -1,4 +1,4 @@
-import {Icon, InlineIcon} from '@iconify/react';
+import {Icon} from '@iconify/react';
 import goldIcon from '@iconify/icons-mdi/gold';
 import trophyVariantOutline from '@iconify/icons-mdi/trophy-variant-outline';
 import accountPlusOutline from '@iconify/icons-mdi/account-plus-outline';
