@@ -1,9 +1,12 @@
 import {HamburgerButton, HamburgerIcon, HamburgerLine} from "../styles/Hamburger.style";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
-const Hamburger = ({mobileMenuElement}) =>{
+interface IProps {
+    mobileMenuElement: React.RefObject<any>
+}
+
+const Hamburger = ({mobileMenuElement}:IProps) =>{
     const [showMenu, setShowMenu] = useState(false);
-/*    const Hamburger = showMenu ? ActiveHamburgerButton : HamburgerButton;*/
     const toggleMobileMenu = () => {
         if (showMenu == false) {
             mobileMenuElement.current.style.display = "flex";
