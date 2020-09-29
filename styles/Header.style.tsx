@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components'
+import styled from 'styled-components'
 import {Colors} from "./Colors.style";
 
 export const Container = styled.div`
@@ -10,7 +10,12 @@ align-items: center;
 
 `
 
-export const Menu = styled.div`
+type MenuType = {
+  desktop?: boolean
+  mobile?: boolean
+}
+
+export const Menu = styled.div<MenuType>`
 display: flex;
 font-family: 'Karla', sans-serif;
 align-items: center;
@@ -30,7 +35,11 @@ export const IconContainer = styled.div`
 font-size: 25px;
 `
 
-export const MenuItem = styled.div`
+type MenuItemType = {
+  last?: boolean
+}
+
+export const MenuItem = styled.div<MenuItemType>`
 margin-left: ${props => props.last ? "auto" : "3%"};
 display: flex;
 align-items: center;
