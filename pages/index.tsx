@@ -2,7 +2,6 @@ import Header from "../components/Header";
 import {GlobalStyle} from "../styles/Global.style";
 import {Banner, BannerMainImage, BannerSmallText, BannerTitle} from "../styles/Index.style";
 import {motion} from "framer-motion";
-import {Container} from "../styles/Register.style";
 
 const IndexPage = () => {
 
