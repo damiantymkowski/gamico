@@ -45,6 +45,7 @@ display: flex;
 align-items: center;
 margin-right: ${props=>props.last ? "5%" : ""};
 height: 100%;
+cursor: pointer;
 &:hover{
 border-top: 1px solid ${Colors.lime};
 }

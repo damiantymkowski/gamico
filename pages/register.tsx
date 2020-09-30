@@ -19,7 +19,7 @@ import React, {useRef, useState} from "react";
 import {motion} from 'framer-motion';
 import axios from 'axios';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {fas, faSpinner} from "@fortawesome/free-solid-svg-icons";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 type RegisterUser = {
     username: string;
@@ -46,12 +46,13 @@ const Register = () => {
 
     const onSubmit = (data: RegisterUser) => {
         setLoading(true);
-          axios.post(`localhost`)
+          axios.get(`/api/signup`)
               .then(res=>{
-
+                console.log(res);
+                setLoading(false);
               }).catch(error=>{
                   if(error.response.status===404)
-                errorRegisterText.current.innerText = "Nie można nawiązać połączenia. Kod błędu: 404";
+                      (errorRegisterText as any).current.innerText = "Nie można nawiązać połączenia. Kod błędu: 404";
                 setLoading(false);
               })
     };
@@ -61,40 +62,40 @@ const Register = () => {
                if (errorEmail == false) {
                    setErrorEmail(true);
                    if(errors.email.type==="required")
-                   errorEmailText.current.innerText = "Pole nie może być puste";
+                       (errorEmailText as any).current.innerText = "Pole nie może być puste";
                    if(errors.email.type==="pattern")
-                       errorEmailText.current.innerText = "Niepoprawny adres e-mail";
+                       (errorEmailText as any).current.innerText = "Niepoprawny adres e-mail";
                }
            }else if(errorEmail==true){
                setErrorEmail(false);
-               errorEmailText.current.innerText = "";
+               (errorEmailText as any).current.innerText = "";
            }
 
         if(errors.username) {
             if (errorUsername == false) {
                 setErrorUsername(true);
                 if(errors.username.type==="required")
-                errorUsernameText.current.innerText = "Pole nie może być puste";
+                    (errorUsernameText as any).current.innerText = "Pole nie może być puste";
                 if(errors.username.type==="pattern")
-                    errorUsernameText.current.innerText = "Błąd: 3-20 znaków, brak znaków specjalnych";
+                    (errorUsernameText as any).current.innerText = "Błąd: 3-20 znaków, brak znaków specjalnych";
             }
         }else if(errorUsername==true){
             setErrorUsername(false);
-            errorUsernameText.current.innerText = "";
+            (errorUsernameText as any).current.innerText = "";
         }
 
         if(errors.password) {
             if (errorPassword == false) {
                 setErrorPassword(true);
                 if(errors.password.type==="required")
-                errorPasswordText.current.innerText = "Pole nie może być puste";
+                    (errorPasswordText as any).current.innerText = "Pole nie może być puste";
                 if(errors.password
                     .type==="pattern")
-                    errorPasswordText.current.innerText = "Niepoprawne hasło";
+                    (errorPasswordText as any).current.innerText = "Niepoprawne hasło";
             }
         }else if(errorPassword==true){
             setErrorPassword(false);
-            errorPasswordText.current.innerText = "";
+            (errorPasswordText as any).current.innerText = "";
         }
     };
 

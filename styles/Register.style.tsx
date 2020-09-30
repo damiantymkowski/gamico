@@ -97,13 +97,19 @@ transition: background-color 0.3s;
 
 `
 
-export const RegisterBoxErrorMessage = styled.p`
+type RegisterBoxErrorMessageType = {
+    ref?: React.Ref<HTMLParagraphElement>
+}
+
+
+export const RegisterBoxErrorMessage = styled.p<RegisterBoxErrorMessageType>`
 color: ${Colors.lightRed};
 font-family: 'Rubik', sans-serif;
 font-size: 12px;
 padding: 0;
 margin: 0;
 margin-top: 5px;
-margin-left: -70px;
+text-align: left;
+margin-left: 175px;
 `
 
