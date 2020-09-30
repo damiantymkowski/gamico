@@ -17,13 +17,14 @@ import {accountIcon, lockIcon, mailIcon,} from "../utils/Icons";
 import {useForm} from "react-hook-form";
 import React, {useRef, useState} from "react";
 import {motion} from 'framer-motion';
-
+import axios from 'axios';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {fas, faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 type RegisterUser = {
     username: string;
     email: string;
     password: string;
-    multipleErrorInput: string;
 };
 
 
@@ -31,10 +32,12 @@ const Register = () => {
     const [errorEmail, setErrorEmail] = useState<boolean>(false);
     const [errorUsername, setErrorUsername] = useState<boolean>(false);
     const [errorPassword, setErrorPassword] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
-    const errorEmailText = useRef<HTMLSpanElement>(),
-        errorUsernameText = useRef<HTMLSpanElement>(),
-        errorPasswordText = useRef<HTMLSpanElement>();
+    const errorEmailText = useRef<HTMLParagraphElement>(null),
+        errorUsernameText = useRef<HTMLParagraphElement>(null),
+        errorPasswordText = useRef<HTMLParagraphElement>(null),
+        errorRegisterText = useRef<HTMLParagraphElement>(null);
 
     const {register, handleSubmit, errors} = useForm<RegisterUser>({
         mode: 'onChange',
@@ -42,16 +45,25 @@ const Register = () => {
     });
 
     const onSubmit = (data: RegisterUser) => {
+        setLoading(true);
+          axios.post(`localhost`)
+              .then(res=>{
 
+              }).catch(error=>{
+                  if(error.response.status===404)
+                errorRegisterText.current.innerText = "Nie można nawiązać połączenia. Kod błędu: 404";
+                setLoading(false);
+              })
     };
 
     const onError = (errors: any) => {
-        console.log(errors);
            if(errors.email) {
                if (errorEmail == false) {
                    setErrorEmail(true);
                    if(errors.email.type==="required")
                    errorEmailText.current.innerText = "Pole nie może być puste";
+                   if(errors.email.type==="pattern")
+                       errorEmailText.current.innerText = "Niepoprawny adres e-mail";
                }
            }else if(errorEmail==true){
                setErrorEmail(false);
@@ -61,7 +73,10 @@ const Register = () => {
         if(errors.username) {
             if (errorUsername == false) {
                 setErrorUsername(true);
+                if(errors.username.type==="required")
                 errorUsernameText.current.innerText = "Pole nie może być puste";
+                if(errors.username.type==="pattern")
+                    errorUsernameText.current.innerText = "Błąd: 3-20 znaków, brak znaków specjalnych";
             }
         }else if(errorUsername==true){
             setErrorUsername(false);
@@ -104,7 +119,8 @@ const Register = () => {
                                 <RegisterBoxInputImg error={errorEmail}>{mailIcon()}</RegisterBoxInputImg>
 
                                 <RegisterBoxInput ref={register({
-                                    required: "Required"
+                                    required: "Required",
+                                    pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
                                 })} type="email" id="email" name="email"
                                                   placeholder="Adres e-mail"></RegisterBoxInput>
                             </RegisterBoxInputContainer>
@@ -114,7 +130,8 @@ const Register = () => {
                             <RegisterBoxInputContainer>
                                 <RegisterBoxInputImg error={errorUsername}>{accountIcon()}</RegisterBoxInputImg>
                                 <RegisterBoxInput ref={register({
-                                    required: "Required"
+                                    required: "Required",
+                                    pattern: /^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/
                                 })} type="text" id="username" name="username"
                                                   placeholder="Nazwa Użytkownika"></RegisterBoxInput>
                             </RegisterBoxInputContainer>
@@ -132,8 +149,8 @@ const Register = () => {
 
                             <RegisterBoxErrorMessage ref={errorPasswordText}></RegisterBoxErrorMessage>
 
-                            <RegisterBoxButton type="submit">ZAREJESTRUJ SIĘ</RegisterBoxButton>
-
+                            <RegisterBoxButton type="submit">{loading ? <FontAwesomeIcon icon={faSpinner} spin/> : `ZAREJESTRUJ SIĘ`}</RegisterBoxButton>
+                            <RegisterBoxErrorMessage ref={errorRegisterText}></RegisterBoxErrorMessage>
 
                         </RegisterBoxForm>
 
