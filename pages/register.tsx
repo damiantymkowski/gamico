@@ -46,11 +46,16 @@ const Register = () => {
 
     const onSubmit = (data: RegisterUser) => {
         setLoading(true);
-          axios.get(`/api/signup`)
+          axios.post(`/api/signup`,{
+              name: data.username,
+              password: data.password,
+              email: data.email
+          })
               .then(res=>{
                 console.log(res);
                 setLoading(false);
               }).catch(error=>{
+              console.log(error);
                   if(error.response.status===404)
                       (errorRegisterText as any).current.innerText = "Nie można nawiązać połączenia. Kod błędu: 404";
                 setLoading(false);
