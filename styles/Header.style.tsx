@@ -81,7 +81,15 @@ font-style: normal;
 font-weight: normal;
 font-size: 25px;
 line-height: 43px;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
 margin-left: 17px;
 color: ${Colors.white};
+&:hover{
+border-top: 1px solid ${Colors.lime};
+}
 `
 
