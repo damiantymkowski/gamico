@@ -103,7 +103,7 @@ type RegisterBoxErrorMessageType = {
 
 
 export const RegisterBoxErrorMessage = styled.p<RegisterBoxErrorMessageType>`
-color: ${Colors.lightRed};
+color: ${props=>props.error ? `${Colors.lime}` : `${Colors.lightRed}`};
 font-family: 'Rubik', sans-serif;
 font-size: 12px;
 padding: 0;
@@ -111,5 +111,6 @@ margin: 0;
 margin-top: 5px;
 text-align: left;
 margin-left: 175px;
+
 `
 
