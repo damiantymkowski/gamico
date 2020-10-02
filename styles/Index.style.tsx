@@ -49,6 +49,10 @@ export const InfoContainer = styled.div`
 margin-top: 30px;
 display: flex;
 flex-direction: row;
+@media (max-width: 1100px) {
+   flex-direction: column;
+   margin-top: unset;
+ }
 `
 
 export const InfoBlock = styled.div`
@@ -65,10 +69,14 @@ position: relative;
 -moz-box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
 box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
 padding: 40px;
+
 &:nth-child(1){
 background-color: ${Colors.lightGray};
 position: relative;
 left: 50px;
+@media (max-width: 1100px) {
+   left: unset;
+ }
 }
 &:nth-child(2){
 background-color: ${Colors.lightGray};
@@ -76,10 +84,20 @@ position: relative;
 top: -20px;
 box-shadow: 1px solid blue;
 z-index: 999;
+@media (max-width: 1100px) {
+   top: unset;
+ }
 }
 &:nth-child(3){
 right: 50px;
+@media (max-width: 1100px) {
+   right: unset;
+ }
 }
+ @media (max-width: 1100px) {
+   margin-top: 55px;
+   padding: 20px;
+ }
 `
 
 export const InfoTitle = styled.h3`
@@ -116,12 +134,19 @@ display: flex;
 justify-content: center;
 align-items: center;
 color: ${Colors.white};
+@media (max-width: 1100px) {
+   margin-top: 25px;
+ }
 `
 
 export const StatsContainer = styled.div`
 display: flex;
 margin-top: 80px;
 flex-direction: row;
+@media (max-width: 1100px) {
+   flex-direction: column;
+   margin-top: 20px;
+ }
 `
 
 export const AboutTextContainer = styled.div`
@@ -129,6 +154,11 @@ margin-top: 20px;
 margin-left: 10px;
 display: flex;
 width: 61.5%;
+@media (max-width: 1100px) {
+   flex-direction: column;
+   width: 90%;
+   margin-left: unset;
+ }
 `
 
 export const AboutSiteText = styled.div`
@@ -138,6 +168,7 @@ color: ${Colors.white};
   text-align: justify;
   text-justify: inter-word;
   line-height: 1.5;
+
 `
 export const AboutHeader = styled.h2`
 font-weight: normal;
