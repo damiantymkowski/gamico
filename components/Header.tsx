@@ -35,10 +35,11 @@ const Header = () => {
               <SmallText>LIDERZY</SmallText>
             </MenuItem>
 
-            <MenuItem last>
+            <Link href="/register" as="/register"><MenuItem last>
               <IconContainer>{menuAccountIcon()}</IconContainer>
-              <Link href="/register" as="/register"><SmallText>REJESTRACJA</SmallText></Link>
+              <SmallText>REJESTRACJA</SmallText>
             </MenuItem>
+            </Link>
           </Menu>
 
           <Menu mobile>
