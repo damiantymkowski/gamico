@@ -46,28 +46,101 @@ flex-direction: column;
 `
 
 export const InfoContainer = styled.div`
+margin-top: 30px;
 display: flex;
 flex-direction: row;
 `
 
 export const InfoBlock = styled.div`
-width: 225px;
-height: 175px;
-background-color: red;
-display: block;
+width: 325px;
+color: ${Colors.lime};
+height: 155px;
+background-color: ${Colors.lightGray};
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 position: relative;
+-webkit-box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
+box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
 padding: 40px;
 &:nth-child(1){
-background-color: red;
+background-color: ${Colors.lightGray};
 position: relative;
 left: 50px;
 }
 &:nth-child(2){
-background-color: white;
+background-color: ${Colors.lightGray};
 position: relative;
+top: -20px;
+box-shadow: 1px solid blue;
 z-index: 999;
 }
 &:nth-child(3){
 right: 50px;
 }
+`
+
+export const InfoTitle = styled.h3`
+margin: 0;
+margin-bottom: -15px;
+font-size: 25px;
+margin-top: 40px;
+`
+
+export const InfoSmallText = styled.p`
+font-size: 20px;
+text-align: center;
+color: ${Colors.white};
+margin-right: 10px;
+margin-left: 20px;
+`
+
+export const InfoIcon = styled.div`
+font-size: 140px;
+position: absolute;
+top: -60px;
+`
+
+export const StatsBlock = styled.div`
+height: 70px;
+width: 345px;
+background-color: ${Colors.lightGray};
+margin-left: 20px;
+margin-right: 20px;
+-webkit-box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
+box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.75);
+display: flex;
+justify-content: center;
+align-items: center;
+color: ${Colors.white};
+`
+
+export const StatsContainer = styled.div`
+display: flex;
+margin-top: 80px;
+flex-direction: row;
+`
+
+export const AboutTextContainer = styled.div`
+margin-top: 20px;
+margin-left: 10px;
+display: flex;
+width: 61.5%;
+`
+
+export const AboutSiteText = styled.div`
+margin-left: 10px;
+flex: 50%;
+color: ${Colors.white};
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.5;
+`
+export const AboutHeader = styled.h2`
+font-weight: normal;
+color: ${Colors.lime};
+margin-bottom: 2px;
 `
