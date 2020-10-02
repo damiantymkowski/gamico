@@ -32,6 +32,7 @@ const Register = () => {
     const [errorEmail, setErrorEmail] = useState<boolean>(false);
     const [errorUsername, setErrorUsername] = useState<boolean>(false);
     const [errorPassword, setErrorPassword] = useState<boolean>(false);
+    const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
 
     const errorEmailText = useRef<HTMLParagraphElement>(null),
@@ -52,12 +53,17 @@ const Register = () => {
               email: data.email
           })
               .then(res=>{
-                console.log(res);
                 setLoading(false);
+                  (errorRegisterText as any).current.innerText = "";
+                  if(res.status===201)
+                      (errorRegisterText as any).current.innerText = "Witamy! Na podanym mailu znajdziesz link aktywacyjny";
+                  setSubmitSuccess(true);
+
               }).catch(error=>{
-              console.log(error);
                   if(error.response.status===404)
                       (errorRegisterText as any).current.innerText = "Nie można nawiązać połączenia. Kod błędu: 404";
+                  if(error.response.status===409)
+                      (errorRegisterText as any).current.innerText = "Taki Użytkownik już istnieje";
                 setLoading(false);
               })
     };
@@ -156,7 +162,7 @@ const Register = () => {
                             <RegisterBoxErrorMessage ref={errorPasswordText}></RegisterBoxErrorMessage>
 
                             <RegisterBoxButton type="submit">{loading ? <FontAwesomeIcon icon={faSpinner} spin/> : `ZAREJESTRUJ SIĘ`}</RegisterBoxButton>
-                            <RegisterBoxErrorMessage ref={errorRegisterText}></RegisterBoxErrorMessage>
+                            <RegisterBoxErrorMessage error={submitSuccess} ref={errorRegisterText}></RegisterBoxErrorMessage>
 
                         </RegisterBoxForm>
 
