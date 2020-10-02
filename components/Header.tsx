@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <>
       <Container>
-        <Logo>GAMICO</Logo>
+        <Link href="/" as="/"><Logo>GAMICO</Logo></Link>
 
           <Menu desktop>
             <MenuItem>
