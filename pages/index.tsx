@@ -16,6 +16,7 @@ import {motion} from "framer-motion";
 import Icon from "@iconify/react";
 import cash100 from '@iconify/icons-mdi/cash-100';
 import React from "react";
+import Footer from "../components/Footer";
 
 const IndexPage = () => {
 
@@ -72,6 +73,7 @@ const IndexPage = () => {
 
 
 </Container>
+            <Footer/>
             </motion.div>
         </>
     );
