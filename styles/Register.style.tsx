@@ -16,6 +16,9 @@ export const RegisterBox = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  @media (max-width: 1100px) {
+   width: 100%;
+ }
 `;
 
 export const RegisterBoxTitle = styled.h1`
@@ -31,7 +34,14 @@ type RegisterBoxFormType = {
 
 export const RegisterBoxForm = styled.form<RegisterBoxFormType>`
 flex: 95%;
+display: flex;
+flex-direction: column;
+align-items: center;
+
 margin-left: -35%;
+@media (max-width: 1100px) {
+   margin-left: unset;
+ }
 `;
 
 export const RegisterBoxInfo = styled.h3`
@@ -50,20 +60,19 @@ right: 70px;
 flex: 5%;
 position: relative;
 top: 150px;
+@media (max-width: 1100px) {
+   display: none;
+ }
 `;
 
 export const RegisterBoxInput = styled.input`
-width: 50%;
-margin-left: 75px;
 height: 30px;
-margin-top: 5px;
 border: none;
 `;
 
 export const RegisterBoxButton = styled.button`
-width: 50.5%;
-margin-left: 75px;
 padding: 5px;
+width: 38%;
 margin-top: 5px;
 border: none;
 background-color: ${Colors.lime};
@@ -73,8 +82,8 @@ cursor: pointer;
 `
 
 export const RegisterBoxInputContainer = styled.div`
-  top: 12px;
-  left: 15px;
+  display: flex;
+  flex-direction: row;
 `
 
 type RegisterBoxInputImgType = {
@@ -82,9 +91,8 @@ type RegisterBoxInputImgType = {
 }
 
 export const RegisterBoxInputImg = styled.div<RegisterBoxInputImgType>`
-position: absolute;
-margin-left: 138.2px;
-margin-top: 5px;
+
+
 height: 32px;
 width: 36px;
 display: flex;
@@ -94,7 +102,9 @@ font-size: 25px;
 color: ${Colors.darkBlue};
 background-color: ${props => props.error ? `${Colors.lightRed}` : `${Colors.lime}`};
 transition: background-color 0.3s;
-
+@media (max-width: 1100px) {
+ //margin-left: 115px;
+ }
 `
 
 type RegisterBoxErrorMessageType = {
