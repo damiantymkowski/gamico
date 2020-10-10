@@ -8,7 +8,7 @@ align-items: center;
 height: 93vh;
 `;
 
-export const RegisterBox = styled.div`
+export const Box = styled.div`
   width: 600px;
   min-height: 600px;
   background-color: ${Colors.lightGray};
@@ -21,7 +21,7 @@ export const RegisterBox = styled.div`
  }
 `;
 
-export const RegisterBoxTitle = styled.h1`
+export const Title = styled.h1`
 font-size: 50px;
 color: ${Colors.lime};
 font-family: 'Karla', sans-serif;
@@ -32,7 +32,7 @@ type RegisterBoxFormType = {
     onSubmit?: any
 }
 
-export const RegisterBoxForm = styled.form<RegisterBoxFormType>`
+export const Form = styled.form<RegisterBoxFormType>`
 flex: 95%;
 display: flex;
 flex-direction: column;
@@ -44,7 +44,7 @@ margin-left: -35%;
  }
 `;
 
-export const RegisterBoxInfo = styled.h3`
+export const Subheading = styled.h3`
 color: ${Colors.white};
 font-family: Rubik, sans-serif;
 font-weight: 200;
@@ -55,7 +55,7 @@ white-space: pre;
 }
 `;
 
-export const RegisterBoxImage = styled.img`
+export const Image = styled.img`
 right: 70px;
 flex: 5%;
 position: relative;
@@ -65,12 +65,12 @@ top: 150px;
  }
 `;
 
-export const RegisterBoxInput = styled.input`
+export const Input = styled.input`
 height: 30px;
 border: none;
 `;
 
-export const RegisterBoxButton = styled.button`
+export const Button = styled.button`
 padding: 5px;
 width: 38%;
 margin-top: 5px;
@@ -81,7 +81,7 @@ font-size: 17px;
 cursor: pointer;
 `
 
-export const RegisterBoxInputContainer = styled.div`
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
 `
@@ -90,7 +90,7 @@ type RegisterBoxInputImgType = {
     error?: boolean
 }
 
-export const RegisterBoxInputImg = styled.div<RegisterBoxInputImgType>`
+export const InputImage = styled.div<RegisterBoxInputImgType>`
 
 
 height: 32px;
@@ -107,12 +107,13 @@ transition: background-color 0.3s;
  }
 `
 
-type RegisterBoxErrorMessageType = {
+type ErrorMessageType = {
     ref?: React.Ref<HTMLParagraphElement>
+    error?: boolean
 }
 
 
-export const RegisterBoxErrorMessage = styled.p<RegisterBoxErrorMessageType>`
+export const ErrorMessage = styled.p<ErrorMessageType>`
 color: ${props=>props.error ? `${Colors.lime}` : `${Colors.lightRed}`};
 font-family: 'Rubik', sans-serif;
 font-size: 12px;
