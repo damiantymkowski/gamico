@@ -1,67 +1,67 @@
-import {
-  Container,
-  IconContainer,
-  Logo,
-  Menu,
-  MenuItem,
-  MenuMobile,
-  SmallText,
-} from "../styles/Header.style";
-import {
-  menuAccountIcon,
-  menuGoldIcon,
-  menuTrophyIcon,
-} from "../utils/Icons";
+import * as S from "../styles/Header.style";
+import { menuAccountIcon, menuGoldIcon, menuTrophyIcon } from "../utils/Icons";
 import { useRef } from "react";
 import Hamburger from "./Hamburger";
 import Link from "next/link";
-
 
 const Header = () => {
   const mobileMenu = useRef<HTMLDivElement>(null);
   return (
     <>
-      <Container>
-        <Link href="/" as="/"><Logo>GAMICO</Logo></Link>
+      <S.Container>
+        <Link href="/" as="/">
+          <S.Logo>GAMICO</S.Logo>
+        </Link>
 
-          <Menu desktop>
-            <MenuItem>
-              <IconContainer>{menuGoldIcon()}</IconContainer>
-              <SmallText>ZDOBYWAJ</SmallText>
-            </MenuItem>
+        <S.Menu desktop>
+          <S.MenuItem>
+            <S.IconContainer>{menuGoldIcon()}</S.IconContainer>
+            <S.SmallText>ZDOBYWAJ</S.SmallText>
+          </S.MenuItem>
 
-            <MenuItem>
-              <IconContainer>{menuTrophyIcon()}</IconContainer>
-              <SmallText>LIDERZY</SmallText>
-            </MenuItem>
+          <S.MenuItem>
+            <S.IconContainer>{menuTrophyIcon()}</S.IconContainer>
+            <S.SmallText>LIDERZY</S.SmallText>
+          </S.MenuItem>
 
-            <Link href="/register" as="/register"><MenuItem last>
-              <IconContainer>{menuAccountIcon()}</IconContainer>
-              <SmallText>REJESTRACJA</SmallText>
-            </MenuItem>
-            </Link>
-          </Menu>
+          <Link href="/register" as="/register">
+            <S.MenuItem right>
+              <S.IconContainer>{menuAccountIcon()}</S.IconContainer>
+              <S.SmallText>REJESTRACJA</S.SmallText>
+            </S.MenuItem>
+          </Link>
 
-          <Menu mobile>
-            <Hamburger mobileMenuElement={mobileMenu}/>
-          </Menu>
-      </Container>
+          <Link href="/login" as="/login">
+            <S.MenuItem last>
+              <S.IconContainer>{menuAccountIcon()}</S.IconContainer>
+              <S.SmallText>LOGOWANIE</S.SmallText>
+            </S.MenuItem>
+          </Link>
 
-        <MenuMobile ref={mobileMenu}>
-          <MenuItem>
-            <IconContainer>{menuGoldIcon()}</IconContainer>
-            <SmallText>ZDOBYWAJ</SmallText>
-          </MenuItem>
-          <MenuItem>
-            <IconContainer>{menuTrophyIcon()}</IconContainer>
-            <SmallText>LIDERZY</SmallText>
-          </MenuItem>
-          <MenuItem>
-            <IconContainer>{menuAccountIcon()}</IconContainer>
-            <SmallText>REJESTRACJA</SmallText>
-          </MenuItem>
-        </MenuMobile>
 
+        </S.Menu>
+
+        <S.Menu mobile>
+          <Hamburger mobileMenuElement={mobileMenu} />
+        </S.Menu>
+      </S.Container>
+
+      <S.MenuMobile ref={mobileMenu}>
+        <S.MenuItem>
+          <S.IconContainer>{menuGoldIcon()}</S.IconContainer>
+          <S.SmallText>ZDOBYWAJ</S.SmallText>
+        </S.MenuItem>
+        <S.MenuItem>
+          <S.IconContainer>{menuTrophyIcon()}</S.IconContainer>
+          <S.SmallText>LIDERZY</S.SmallText>
+        </S.MenuItem>
+        <Link href="/register" as="/register">
+          <S.MenuItem>
+            <S.IconContainer>{menuAccountIcon()}</S.IconContainer>
+            <S.SmallText>REJESTRACJA</S.SmallText>
+          </S.MenuItem>
+        </Link>
+      </S.MenuMobile>
     </>
   );
 };
