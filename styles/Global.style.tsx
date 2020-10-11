@@ -8,7 +8,11 @@ export const GlobalStyle = createGlobalStyle`
       background: ${Colors.darkBlue};
     margin: 0;
     padding: 0;
+    display: flex;
     font-family: 'Rubik', sans-serif;
+    }
+    #__next{
+    width: 100%;
     }
 }
     `
