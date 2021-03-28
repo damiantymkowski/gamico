@@ -6,9 +6,12 @@ Use below command in terminal to initialize the app. You have to be in the proje
 ```javascreipt
 npm run dev
 ```
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Technologies
+- Next.JS
+- Styled-Components
+- Redux
+- Mongoose
+- Express
+- React-Hook-Form
+- React-DOM
+- TypeScript
